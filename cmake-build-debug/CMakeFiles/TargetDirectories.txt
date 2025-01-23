@@ -1,3 +1,0 @@
-/mnt/c/Users/dimak/CLionProjects/testC/cmake-build-debug/CMakeFiles/testC.dir
-/mnt/c/Users/dimak/CLionProjects/testC/cmake-build-debug/CMakeFiles/edit_cache.dir
-/mnt/c/Users/dimak/CLionProjects/testC/cmake-build-debug/CMakeFiles/rebuild_cache.dir
