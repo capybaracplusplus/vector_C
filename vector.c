@@ -1,11 +1,11 @@
 #include "vector.h"
 
 
-void vector_destroy(struct Vector *vec);
+void vector_destroy(vector_t *vec);
 
-void vector_push_back(struct Vector *vec, const void *element);
+void vector_push_back(vector_t *vec, const void *element);
 
-void vector_pop_back(struct Vector *vec);
+void vector_pop_back(vector_t *vec);
 
 struct VectorMethods vector_methods = {
         .destroy = vector_destroy,
@@ -13,8 +13,8 @@ struct VectorMethods vector_methods = {
         .pop_back = vector_pop_back
 };
 
-struct Vector *vector_create(size_t element_size) {
-    struct Vector *vec = (struct Vector *) malloc(sizeof(struct Vector));
+vector_t *vector_create(size_t element_size) {
+    vector_t *vec = (vector_t *) malloc(sizeof(vector_t));
     if (!vec) {
         return NULL;
     }
@@ -26,7 +26,7 @@ struct Vector *vector_create(size_t element_size) {
     return vec;
 }
 
-void vector_destroy(struct Vector *vec) {
+void vector_destroy(vector_t *vec) {
     if (vec) {
         if (vec->data != NULL) {
             free(vec->data);
@@ -35,7 +35,7 @@ void vector_destroy(struct Vector *vec) {
     }
 }
 
-void vector_push_back(struct Vector *vec, const void *element) {
+void vector_push_back(vector_t *vec, const void *element) {
     if (vec->size == vec->capacity) {
         size_t new_capacity = vec->capacity == 0 ? 1 : vec->capacity * 2;
         void *new_data = realloc(vec->data, new_capacity * vec->element_size);
@@ -51,7 +51,7 @@ void vector_push_back(struct Vector *vec, const void *element) {
     }
 }
 
-void vector_pop_back(struct Vector *vec) {
+void vector_pop_back(vector_t *vec) {
     if (vec->size > 0) {
         vec->size--;
         if (vec->size < vec->capacity / 4) {

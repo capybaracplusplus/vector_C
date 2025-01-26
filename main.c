@@ -6,7 +6,7 @@ int main(void) {
 
     printf("Hello, World!\n");
 
-    struct Vector *vector = vector_create(sizeof(int));
+    vector_t *vector = vector_create(sizeof(int));
     vector->methods->push_back(vector, &(int) {43});
     vector->methods->pop_back(vector);
     vector->methods->push_back(vector, &(int) {44});
